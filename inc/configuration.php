@@ -1,11 +1,12 @@
-<?php//início do código PHP
-	class Sql /*chama a classe SQL do PHP para criar uma conexão do banco de dados*/{
+<?php
+//início do código PHP
+	class Sql{ /*chama a classe SQL do PHP para criar uma conexão do banco de dados*/
 
 		public $conn;
 
 		public function __construct/*função que executa uma ação de forma automática*/(){
 
-			return $this->conn = mysqli_connect("127.0.0.1", "root", "bc3*_a@d16", "hcode_shop");
+			return $this->conn = mysqli_connect("127.0.0.1", "root", "", "hcode_shop");
 
 		}
 
@@ -22,6 +23,10 @@
 			$data = array();
 
 			while ($row = mysqli_fetch_array($result)) {
+
+				foreach($row as $key => $value) {
+					$row[$key] = utf8_encode($value);
+				}
 
 				array_push($data, $row);
 
