@@ -1,6 +1,6 @@
 <!DOCTYPE html>
-<html>
-	<head ng-app="shop"><!-- manipula a página shop em angularjs-->
+<html ng-app="shop"><!-- manipula a página shop em angularjs-->
+	<head>
 	
 		<meta charset="utf-8">
 		<meta name="viewport" content="width= device-width, initial-scale=1"><!-- tag html para desenvolvimento responsivo (funcionar nos dispositivos móveis) -->
