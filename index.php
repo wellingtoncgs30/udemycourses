@@ -129,4 +129,32 @@ $app->get("/produto-:id_prod", function($id_prod){
 
 });
 
+$app->get(
+	'/cart', 
+	function(){
+
+		require_once("view/cart.php");
+
+	}
+
+);
+
+$app->get('/carrinho-dados', function(){
+
+	$sql = new Sql();
+
+	$result = $sql->select("CALL sp_carrinhos_get('".session_id()"')");
+
+	echo json_encode($result[0]);
+
+});
+
+$app->post('/carrinho', function(){
+
+	$request_body = json_decode(file_get_contents('php://input'), true);
+
+	var_dump($request_body);
+
+});
+
 $app->run();

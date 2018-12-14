@@ -7,7 +7,7 @@
 		<div id="destaque-produtos">
 
 			<div class="col-sm-6 col-imagem">
-				<img src="img/produtos/<?= $produto['foto-principal']?>" alt="<?= $produto['nome_prod_longo']?>">
+				<img src="img/produtos/<?= $produto['foto_principal']?>" alt="<?= $produto['nome_prod_longo']?>" id="produto-principal">
 			</div>
 
 			<div class="col-sm-6 col-descricao">

@@ -1,4 +1,6 @@
 <?php
+session_start();
+
 //início do código PHP
 	class Sql{ /*chama a classe SQL do PHP para criar uma conexão do banco de dados*/
 
