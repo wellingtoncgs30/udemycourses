@@ -143,17 +143,36 @@ $app->get('/carrinho-dados', function(){
 
 	$sql = new Sql();
 
-	$result = $sql->select("CALL sp_carrinhos_get('".session_id()"')");
+	$result = $sql->select("CALL sp_carrinhos_get('".session_id()."')");
 
-	echo json_encode($result[0]);
+	$carrinho = $result[0];
+
+	$sql = new Sql();
+
+	$carrinho['produtos'] = $sql->select("CALL sp_carrinhosprodutos_list(".$carrinho['id_car'].")");
+
+	$carrinho['total_car'] = number_format((float)$carrinho['total_car'], 2, ',', '.');
+	$carrinho['subtotal_car'] = number_format((float)$carrinho['total_car'], 2, ',', '.');
+	$carrinho['frete_car'] = number_format((float)$carrinho['frete_car'], 2, ',', '.');
+
+	echo json_encode($carrinho);
 
 });
 
-$app->post('/carrinho', function(){
+$app->get('/carrinhoAdd-:id_prod', function($id_prod){
 
-	$request_body = json_decode(file_get_contents('php://input'), true);
+	$sql = new Sql();
 
-	var_dump($request_body);
+	$result = $sql->select("CALL sp_carrinhos_get('".session_id()."')");
+
+	$carrinho = $result[0];
+
+	$sql = new Sql();
+
+	$sql = query("CALL sp_carrinhosprodutos_add(".$carrinho['id_car'].", ".$id_prod.")");
+
+	header("location: cart");
+	exit;
 
 });
 
