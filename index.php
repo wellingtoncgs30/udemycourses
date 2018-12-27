@@ -169,7 +169,7 @@ $app->get('/carrinhoAdd-:id_prod', function($id_prod){
 
 	$sql = new Sql();
 
-	$sql = query("CALL sp_carrinhosprodutos_add(".$carrinho['id_car'].", ".$id_prod.")");
+	$sql->query("CALL sp_carrinhosprodutos_add(".$carrinho['id_car'].", ".$id_prod.")");
 
 	header("location: cart");
 	exit;

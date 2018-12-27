@@ -29,7 +29,7 @@
 					      <span class="input-group-btn">
 					        <button class="btn text-roxo" ng-click="addQtd(produto)" type="button"><i class="fa fa-chevron-down"></i></button>
 					      </span>
-					      <input type="text" class="form-control" ng-model="produto.qtd">
+					      <input type="text" class="form-control" ng-model="produto.qtd_car">
 					      <span class="input-group-btn">
 					        <button class="btn text-roxo" ng-click="removeQtd(produto)" type="button"><i class="fa fa-chevron-up"></i></button>
 					      </span>
